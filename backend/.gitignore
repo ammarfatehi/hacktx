@@ -1,0 +1,8 @@
+.gcloudignore
+env/*
+node_modules/*
+.vscode/*
+*.yaml
+__pycache__/
+.idea/
+.azure/
