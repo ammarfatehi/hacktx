@@ -11,15 +11,15 @@ import {
 } from 'react-native';
 
 //Screens
-import HomeScreen from './screens/HomeScreen';
-import CameraScreen from './screens/CameraScreen';
-import AccountScreen from './screens/AccountScreen';
+import HomeScreen from './src/screens/HomeScreen';
+import CameraScreen from './src/screens/CameraScreen';
+import AccountScreen from './src/screens/AccountScreen';
 
 //Utils and Assets
-import theme from './utils/theme';
-import homeIcon from './assets/icons/home.png';
-import photoIcon from './assets/icons/camera.png';
-import accountIcon from './assets/icons/account.png';
+import theme from './src/utils/theme';
+import homeIcon from './src/assets/icons/home.png';
+import photoIcon from './src/assets/icons/camera.png';
+import accountIcon from './src/assets/icons/account.png';
 
 function App(props) {
 
