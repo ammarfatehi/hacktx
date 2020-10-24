@@ -6,5 +6,3 @@ def wikipediaInfo(searchItem):
     r = requests.get(f"https://en.wikipedia.org/api/rest_v1/page/summary/{replaced}")
     page = r.json()
     return page["extract"]
-
-print(wikipediaInfo("hello world"))
