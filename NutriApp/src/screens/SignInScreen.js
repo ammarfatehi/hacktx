@@ -22,18 +22,24 @@ function SignInScreen(props){
 
     const[username, setUsername] = useState('');
     const[password, setPassword] = useState('');
+    const[error, setError] = useState(null);
 
 
     const signIn = () => {
         app.auth().signInWithEmailAndPassword(username, password)
         .then((user) => setLoggedIn(true))
-        .catch((error) => console.log(error));
+        .catch((error) => setError(error.message));
     }
 
 
     return (
         <View style={styles.container}>
             <Text style={styles.title}>NutriApp</Text>
+            {error && (
+                <Text style={styles.errorMessage}>
+                    {error}
+                </Text>
+            )}
             <TextInput 
                 style={styles.textInput}
                 onChangeText={(text) => setUsername(text)}
@@ -51,12 +57,14 @@ function SignInScreen(props){
                 textAlign='center'
                 secureTextEntry
             />
+            
             <AnimatedButton
                 color={theme.colors.white}
                 labelColor={theme.colors.black}
                 label='Sign In'
                 onPress={() => signIn()}
             />
+            
 
         </View>
     )
@@ -93,6 +101,12 @@ const styles = StyleSheet.create({
     }, 
     button: {
         backgroundColor: 'purple'
+    }, 
+    errorMessage: {
+        color: 'red', 
+        margin: 5, 
+        fontFamily: theme.font.family.title, 
+        fontWeight: theme.font.weight.semibold
     }
 })
 
