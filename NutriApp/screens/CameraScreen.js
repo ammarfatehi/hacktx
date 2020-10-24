@@ -4,6 +4,7 @@ import {
     View,
     Text,
 } from 'react-native';
+import { RNCamera } from 'react-native-camera'
 
 function CameraScreen(props) {
 
@@ -12,6 +13,9 @@ function CameraScreen(props) {
             <Text>
                 Camera Screen
             </Text>
+            <RNCamera
+                style={{ flex: 1, alignItems: 'center' }}
+            />
 
         </View>
     )
