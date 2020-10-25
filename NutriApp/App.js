@@ -27,7 +27,7 @@ import app from './src/config/firebase';
 
 function App(props) {
 
-  const [page, setPage] = useState('home');
+  const [page, setPage] = useState('camera');
   const [loggedIn, setLoggedIn] = useState(false);
   const [user, setUser] = useState(null)
 
