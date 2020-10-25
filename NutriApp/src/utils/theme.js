@@ -3,7 +3,8 @@ const theme = {
         green: 'green', 
         white: 'white', 
         black: 'black', 
-        lightBlue: '#bfdeff'
+        lightGreen: '#8ae693', 
+        lightGrey: '#f2f2f2',
     }, 
     font: {
         family: {

@@ -86,7 +86,7 @@ function SignInScreen(props) {
             />
 
             <AnimatedButton
-                color={theme.colors.white}
+                color={theme.colors.lightGreen}
                 labelColor={theme.colors.black}
                 label='Sign Up'
                 onPress={() => setViewModal(true)}
@@ -112,12 +112,13 @@ const styles = StyleSheet.create({
         height: 45,
         borderColor: theme.colors.white,
         borderWidth: 1,
-        width: '75%',
+        width: '90%',
         paddingVertical: 5,
         paddingHorizontal: 20,
         margin: 10,
         color: theme.colors.white,
         borderRadius: 20,
+        fontSize: 16
     },
     title: {
         color: theme.colors.white,

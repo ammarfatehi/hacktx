@@ -58,7 +58,7 @@ function App(props) {
               page == 'home' ? (
                 <HomeScreen />
               ) : page == 'account' ? (
-                <AccountScreen />
+                <AccountScreen setLoggedIn={setLoggedIn}/>
               ) : page == 'camera' ? (
                 <CameraScreen />
               ) : null
@@ -126,8 +126,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 10,
     backgroundColor: theme.colors.white,
-    borderBottomWidth: 1,
-    borderBottomColor: theme.colors.black,
   },
   headerText: {
     color: theme.colors.green,
@@ -147,8 +145,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     backgroundColor: theme.colors.white,
     padding: 15,
-    borderTopWidth: 1,
-    borderTopColor: theme.colors.black
   },
   icon: {
     height: 30,
