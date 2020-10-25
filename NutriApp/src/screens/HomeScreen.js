@@ -1,22 +1,26 @@
-import React from 'react';
+import React, { Component, useState } from 'react';
+import ItemCard from '../components/ItemCard';
 
 import {
     View,
     Text,
+    StyleSheet,
+    TextInput,
+    FlatList,
+    ActivityIndicator,
+    TouchableOpacity,
+    TouchableHighlight,
+    Button
 } from 'react-native';
 
+
 function HomeScreen(props) {
-
+    
     return(
-        <View>
-            <Text>
-                Home Screen
-            </Text>
-
-        </View>
+        <>
+        <ItemCard />
+        </>
     )
 }
 
-
 export default HomeScreen;
-
