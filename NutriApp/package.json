@@ -15,13 +15,7 @@
     "firebase": "^7.24.0",
     "react": "16.13.1",
     "react-native": "0.63.3",
-<<<<<<< HEAD
-    "react-native-animatable": "^1.3.3",
-    "react-native-expandable-card": "^1.0.3",
-    "react-native-vector-icons": "^7.1.0"
-=======
     "react-native-camera": "^3.40.0"
->>>>>>> 6977463c7118946c0064fb76bdc1775ad820ee71
   },
   "devDependencies": {
     "@babel/core": "^7.12.3",
