@@ -93,7 +93,7 @@ function SignUpScreen(props) {
                         <Text style={{color: 'red'}}>{message}</Text>
                     )}
                     <AnimatedButton
-                        color='#f0f0f0'
+                        color={theme.colors.lightGreen}
                         labelColor={theme.colors.black}
                         label='Sign Up'
                         onPress={() => createAccount()}
