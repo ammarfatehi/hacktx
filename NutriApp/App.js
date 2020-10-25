@@ -56,11 +56,11 @@ function App(props) {
           <View style={styles.pageContainer}>
             {
               page == 'home' ? (
-                <HomeScreen />
+                <HomeScreen/>
               ) : page == 'account' ? (
                 <AccountScreen setLoggedIn={setLoggedIn}/>
               ) : page == 'camera' ? (
-                <CameraScreen />
+                <CameraScreen/>
               ) : null
             }
           </View>
