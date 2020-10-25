@@ -1,10 +1,10 @@
 import React from 'react';
-import Camera from '../components/Camera'
+import Camera from '../components/Camera';
 
 function CameraScreen(props) {
-    return (‍‍
-        <Camera/>‍‍
-    );
-};
+    return (
+        <Camera/>
+    )
+}
 
 export default CameraScreen;
