@@ -12,6 +12,7 @@ import Camera from '../components/Camera';
 import AnimatedButton from '../components/AnimatedButton';
 import theme from '../utils/theme';
 
+
 function CameraScreen(props) {
 
     const [image, setImage] = useState(null);
@@ -37,50 +38,75 @@ function CameraScreen(props) {
 
     }, [text])
 
-    const detectText = async (base64) => {
+    const detectText = async (img) => {
+        
+        console.log(img)
+        const fileToBase64 = (filename, filepath) => {
+            return new Promise(resolve => {
+              var file = new File([filename], filepath);
+              var reader = new FileReader();
+              // Read file content on file loaded event
+              reader.onload = function(event) {
+                resolve(event.target.result);
+              };
+              
+              // Convert data to base64 
+              reader.readAsDataURL(file);
+            });
+        };
+
+        console.log(img.uri)
+        const base64 = await fileToBase64("image", img.uri);
+        console.log(base64)
+        console.log(base64.length)
         let body = JSON.stringify({
-            requests: [{
-                image: { content: base64 },
-                features: [
-                    { type: "TEXT_DETECTION" }
-                ]
-            }]
+            requests: [
+                {
+                    image: { 
+                        source: {
+                            imageUri: base64
+                        } 
+                    },
+                    features: [
+                        { 
+                            type: "TEXT_DETECTION" 
+                        }
+                    ]
+                }
+            ]
         });
         console.log('making reqest');
         const response = await fetch("https://vision.googleapis.com/v1/images:annotate?key=" + "AIzaSyBSbxQIIUy0wusFqcnETVG996IlUyIIIkY", {
             method: 'POST',
-            body: {
-                "requests": [{
-                    "image": { "content": base64 },
-                    "features": [
-                        { "type": "TEXT_DETECTION" }
-                    ]
-                }]
-            }
+            body
         });
+        
+        const temp = await response.json();
+        console.log(temp);
 
-        console.log(response.json());
+        console.log(response)
+        console.log('');
 
-            // .then(response => {
-            //     const json = response.json();
+        // .then(response => {
+        //     const json = response.json();
 
-            //     if (response.ok) {
-            //         setText(json)
-            //     } else {
-            //         Alert.alert('Uh-oh', 'unable to retreive information')
-            //     }
+        //     if (response.ok) {
+        //         setText(json)
+        //     } else {
+        //         Alert.alert('Uh-oh', 'unable to retreive information')
+        //     }
 
-            //     console.log(response);
-            //     console.log(response.ok);
-            //     console.log(Object.keys(response._bodyBlob._data.__collector));
-            //     console.log(Object.keys(response._bodyInit._data.__collector));
-            //     console.log(json)
+        //     console.log(response);
+        //     console.log(response.ok);
+        //     console.log(Object.keys(response._bodyBlob._data.__collector));
+        //     console.log(Object.keys(response._bodyInit._data.__collector));
+        //     console.log(json)
 
-            //     return json;
-            // })
-            // .catch(err => {
-            //     console.log('Error', err)
-            // })
+        //     return json;
+        // })
+        // .catch(err => {
+        //     console.log('Error', err)
+        // })
     }
 
 

@@ -1,5 +1,4 @@
 import React, { Component, useState } from 'react';
-import testdata from './testdata.json';
 import ExpandedScreen from '../screens/ExpandedScreen';
 import {
     View,
@@ -15,7 +14,6 @@ import {
     ImageBackground
 } from 'react-native';
 
-import Icon from 'react-native-vector-icons/Ionicons'
 import theme from '../utils/theme';
 
 

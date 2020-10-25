@@ -13,7 +13,6 @@ import {
     Button
 } from 'react-native';
 
-import Icon from 'react-native-vector-icons/Ionicons'
 import theme from '../utils/theme';
 function ExpandedScreen(props) {
     const name = props.name; 
