@@ -1,44 +1,16 @@
-import React, {PureComponent} from 'react';
-import {RNCamera} from 'react-native-camera';
+import React, { PureComponent } from 'react';
+import { RNCamera } from 'react-native-camera';
 import cameraIcon from "../assets/icons/camera.png";
 
-import {TouchableOpacity, Alert, StyleSheet, Image, View} from 'react-native';
+import { TouchableOpacity, Alert, StyleSheet, Image, View, TouchableOpacityBase } from 'react-native';
 
-export default class Camera extends PureComponent{
+export default class Camera extends PureComponent {
   constructor(props) {
     super(props);
-      this.state = {
+    this.state = {
       takingPic: false,
     };
   }
-
-
-
-
-  detectText(base64){
-    fetch("https://vision.googleapis.com/v1/images:annotate?key=" + "AIzaSyA2bamGnWyECt53OrM0ADRYwcEg6zLScDU", {
-        method: 'POST',
-        body: JSON.stringify({
-          "requests": [{
-            "image": { "content": base64 },
-            "features": [
-                { "type": "TEXT_DETECTION" }
-            ]}]
-      })
-    })
-    .then(response => { 
-        Alert.alert('Success', "response recieved");
-        return response.json()
-    })
-    .catch(err => {
-      console.log('Error', err)
-    })
-  }
-
-
-
-
-  
   takePicture = async () => {
     if (this.camera && !this.state.takingPic) {
 
@@ -48,21 +20,21 @@ export default class Camera extends PureComponent{
         forceUpOrientation: true,
       };
 
-      this.setState({takingPic: true});
+      this.setState({ takingPic: true });
 
       try {
-         const data = await this.camera.takePictureAsync(options);
-        this.detectText(data.base64)
-         Alert.alert('Success', "Image sent");
-         //TO-DO: make new pop up page with info passed in 
+        const data = await this.camera.takePictureAsync(options);
+        this.props.setImage(data);
       } catch (err) {
         Alert.alert('Error', 'Failed to take picture: ' + (err.message || err));
         return;
       } finally {
-        this.setState({takingPic: false});
+        this.setState({ takingPic: false });
       }
     }
   };
+
+
   render() {
     return (
       <RNCamera
@@ -70,7 +42,7 @@ export default class Camera extends PureComponent{
           this.camera = ref
         }}
         captureAudio={false}
-        style={{flex: 1}}
+        style={{ flex: 1 }}
         type={RNCamera.Constants.Type.back}
       >
         <TouchableOpacity
@@ -80,20 +52,20 @@ export default class Camera extends PureComponent{
         >
           <Image
             source={cameraIcon}
-            style={{height: 40, width: 40, tintColor: 'white'}}
+            style={{ height: 40, width: 40, tintColor: 'white' }}
           />
 
         </TouchableOpacity>
       </RNCamera>
-     );
-   }
+    );
+  }
 }
 const styles = StyleSheet.create({
-   btnAlignment: {
-      flex: 1,
-      flexDirection: 'column',
-      justifyContent: 'flex-end',
-      alignItems: 'center',
-      marginBottom: 20,
-    },
+  btnAlignment: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    marginBottom: 20,
+  },
 });
