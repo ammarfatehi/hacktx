@@ -2,7 +2,8 @@ const theme = {
     colors: {
         green: 'green', 
         white: 'white', 
-        black: 'black'
+        black: 'black', 
+        lightBlue: '#bfdeff'
     }, 
     font: {
         family: {
