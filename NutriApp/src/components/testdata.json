@@ -1,0 +1,42 @@
+{
+    "Vitamins": {
+        "items":["Retinyl Palmitate",
+            "Ascorbic Acid",
+            "Sodium Ascorbate",
+            "Cholecalcifero",
+            "Di-Alpha-Tocopheryl Acetate",
+            "Inositol Niacinate",
+            "Pyridoxine HCI",
+            "Folate",
+            "Cyanocobalamin",
+            "Calcium D-Pantothenate",
+            "Chromium Picolinate",
+            "Molybdenum Citrate"]
+    },
+
+    "Germ-x": {
+        "items": ["Ethyl alchohol",
+            "water",
+            "carbomer", 
+            "acrylates",
+            "alkyl acrylate crosspolymer", 
+            "fragrance",
+            "glycerin",
+            "isopropyl myristate",
+            "tocopheryl acetate"]
+    },
+    
+    "Aveeno Lotion": {
+        "items": ["Dimethicone", 
+            "Water",
+            "Glycerin",
+            "Distearyldimonium",
+            "Chloride", 
+            "Petrolatum",
+            "isopropyl Palmit",
+            "Avena Sativa (Oat)", 
+            "Flour", 
+            "Benzyl Alcohol", 
+            "Sodium Chloride"]
+    }
+}
